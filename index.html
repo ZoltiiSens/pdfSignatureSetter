@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .wrapper{
+                display: flex;
+            }
+            .controls{
+                padding: 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            #canvasBlock{
+                position: relative;
+            }
+            canvas{
+                border: 1px solid #000
+            }
+            #signatureWrapper{
+                position: absolute;
+            }
+        </style>
+    </head>
+<body>
+    <div class="wrapper">
+        <div class="controls">
+            <button id="prev">Prev</button>
+            <span id="npages">...</span>
+            <button id="next">Next</button>
+            <button id="sendData">Send Data</button>
+            <span id="outputData"></span>
+        </div>
+        <div id="canvasBlock">
+            <canvas id="cnv"></canvas>
+            <div id="signatureWrapper" draggable="false" style="left: 200px; top: 300px">
+                <img id="signature" src="signature_smaller.png" alt="?" >
+                <!-- <span>signatureSignature</span> -->
+            </div>
+        </div>
+    </div>
+    
+    
+        
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script> 
+    <!-- <script src="pdf.min.js"></script> -->
+    <script src="./pdfShowing.js"></script>
+    <script src="./signatureSetting.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            min-height: 100vh;
+        }
+
+        #pdfViewer {
+            width: 100%;
+            height: 1000px;
+            border: 1px solid #ccc;
+        }
+
+        #pageInput {
+            width: 60px;
+        }
+
+        #showButton {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>PDF Viewer</h1>
+
+    <label for="pageInput">Page:</label>
+    <input type="number" id="pageInput" min="1" value="1">
+    <button id="showButton" onclick="showPage()">Show</button>
+
+    <div id="pdfViewer"></div>
+
+    <script>
+        function showPage() {
+            const pageInput = document.getElementById('pageInput');
+            const pageNumber = parseInt(pageInput.value, 10);
+
+            // Assuming you have a PDF file named 'document.pdf'
+            const pdfPath = 'test.pdf';
+
+            // Clear previous content
+            const pdfViewer = document.getElementById('pdfViewer');
+            pdfViewer.innerHTML = '';
+
+            // Create a new embed element to display the PDF
+            const embed = document.createElement('embed');
+            embed.src = `${pdfPath}#page=${pageNumber}`;
+            embed.type = 'application/pdf';
+            embed.width = '100%';
+            embed.height = '100%';
+
+            pdfViewer.appendChild(embed);
+        }
+    </script>
+</body>
+</html>
